@@ -26,7 +26,7 @@ class DepositMoneyController extends AppBaseController{
             'type'              => 'TO_DEPOSIT'
         ]);
 
-        return $this->sendResponse($movement, 'asdasd');
+        return $this->sendResponse($movement, 'Dinero depositado correctamente!');
     }
 
 }

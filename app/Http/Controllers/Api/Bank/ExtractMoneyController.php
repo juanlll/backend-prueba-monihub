@@ -27,7 +27,7 @@ class ExtractMoneyController extends AppBaseController{
             'type'              => 'TO_EXTRACT'
         ]);
 
-        return $this->sendResponse($movement, 'asdasd');
+        return $this->sendResponse($movement, 'Dinero extraido correctamente!');
     }
 
 }
