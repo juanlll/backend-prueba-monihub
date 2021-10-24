@@ -6,18 +6,15 @@ use App\Models\Movement;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateBankAccountRequest;
 
 class CreateBankAccountController extends AppBaseController{
 
-    public function __invoke(Request $request){
-
-        $validator = Validator::make($request::all(),BankAccount::$rules);
-
-        if($validator->fails()) return $this->sendError('Error al intentar crear una cuenta', 400, $validator->errors()->messages());
+    public function __invoke(CreateBankAccountRequest $request){
 
         DB::beginTransaction();
 
-        $bankAccount = BankAccount::create($request::all());
+        $bankAccount = BankAccount::create($request->all());
         if(is_null($bankAccount)) DB::rollBack();
 
         $movement = Movement::create([

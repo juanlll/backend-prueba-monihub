@@ -54,7 +54,7 @@ class BankAccount extends Model
      */
     public function movements()
     {
-        return $this->hasMany(Movement::class, 'bank_account_id', 'id')->limit(5)->orderByDesc('id');
+        return $this->hasMany(Movement::class, 'bank_account_id', 'id')->limit(10)->orderByDesc('id');
     }
 
 }

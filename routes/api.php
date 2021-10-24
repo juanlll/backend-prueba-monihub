@@ -24,6 +24,10 @@ Route::get('bank-accounts/{bankAccountNumber}',Bank\GetBankAccountController::cl
 Route::post('deposit-money',Bank\DepositMoneyController::class);
 Route::post('extract-money',Bank\ExtractMoneyController::class);
 
+
+Route::get('currencies',Bank\GetCurrenciesController::class);
+Route::get('banks',Bank\GetBanksController::class);
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
